@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConquerDashboard", "ConquerDashboard\ConquerDashboard.csproj", "{31D443BC-8538-4193-8C38-38216C9D363A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotr2Inspector", "..\Lotr2Inspector\Lotr2Inspector\Lotr2Inspector.csproj", "{7D00DDA2-1709-4563-A68F-E5B0F3A85BE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31D443BC-8538-4193-8C38-38216C9D363A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31D443BC-8538-4193-8C38-38216C9D363A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31D443BC-8538-4193-8C38-38216C9D363A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31D443BC-8538-4193-8C38-38216C9D363A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D00DDA2-1709-4563-A68F-E5B0F3A85BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D00DDA2-1709-4563-A68F-E5B0F3A85BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D00DDA2-1709-4563-A68F-E5B0F3A85BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D00DDA2-1709-4563-A68F-E5B0F3A85BE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1E34A03-90B2-494B-ADC3-85C30F49D12E}
+	EndGlobalSection
+EndGlobal
