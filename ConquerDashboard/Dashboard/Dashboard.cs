@@ -47,6 +47,59 @@ namespace ConquerDashboard
             this.TownSummary = townSummaries;
 		}
 
+        public void incomingHotkey(ref Message m)
+        {
+            if(m.Msg == Form1.WM_HOTKEY)
+            {
+                int selectedTown = Lotr2Inspector.Game.CurrentGame.Get("selected town") - 1;
+
+                switch ((int)m.WParam)
+                {
+                    // Global properties
+                    // Gold
+                    case (int)Keys.G:
+                        Lotr2Inspector.Game.Players[0].Set("gold", Lotr2Inspector.Game.Players[0].Get("gold") + 5000);
+                        break;
+
+                    // Iron
+                    case (int)Keys.I:
+                        Lotr2Inspector.Game.Players[0].Set("iron", Lotr2Inspector.Game.Players[0].Get("iron") + 5000);
+                        break;
+
+                    // Stone
+                    case (int)Keys.S:
+                        Lotr2Inspector.Game.Players[0].Set("stone", Lotr2Inspector.Game.Players[0].Get("stone") + 5000);
+                        break;
+
+                    // Lumber
+                    case (int)Keys.L:
+                        Lotr2Inspector.Game.Players[0].Set("wood", Lotr2Inspector.Game.Players[0].Get("wood") + 5000);
+                        break;
+
+                    // Town properties
+                    // Happiness
+                    case (int)Keys.H:
+                        Lotr2Inspector.Game.Towns[selectedTown].Set("happiness", Lotr2Inspector.Game.Towns[selectedTown].Get("happiness") + 10);
+                        break;
+
+                    // Population
+                    case (int)Keys.P:
+                        Lotr2Inspector.Game.Towns[selectedTown].Set("population", Lotr2Inspector.Game.Towns[selectedTown].Get("population") + 100);
+                        break;
+
+                    // Cows
+                    case (int)Keys.C:
+                        Lotr2Inspector.Game.Towns[selectedTown].Set("cows", Lotr2Inspector.Game.Towns[selectedTown].Get("cows") + 10);
+                        break;
+                        
+                    // Wheat
+                    case (int)Keys.W:
+                        Lotr2Inspector.Game.Towns[selectedTown].Set("wheat", Lotr2Inspector.Game.Towns[selectedTown].Get("wheat") + 100);
+                        break;
+                }
+            }
+        }
+
         public void RunDash()
         {
             System.Diagnostics.Process[] lords2Processes;
@@ -117,6 +170,7 @@ namespace ConquerDashboard
                                 Console.Invoke(new System.Action(() =>
                                 {
                                     Console.Text = $"Playing: #{Lotr2Inspector.Game.CurrentGame.Get("current map")}: {Lotr2Inspector.Game.Maps.Get(Lotr2Inspector.Game.CurrentGame.Get("current map").ToString(), false)} ({Lotr2Inspector.Game.MapTowns[Lotr2Inspector.Game.CurrentGame.Get("current map")][0]}), Turn: {Lotr2Inspector.Game.Calendar.Get("turn")}";
+                                    //Console.Text = Lotr2Inspector.Game.Players[0].Get("gold").ToString();
                                 }));
                             }
                         }

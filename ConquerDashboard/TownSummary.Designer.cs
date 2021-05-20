@@ -163,6 +163,7 @@
 			// txtDebug
 			// 
 			this.txtDebug.AutoSize = true;
+			this.txtDebug.BackColor = System.Drawing.SystemColors.ButtonFace;
 			this.txtDebug.Location = new System.Drawing.Point(8, 219);
 			this.txtDebug.Name = "txtDebug";
 			this.txtDebug.Size = new System.Drawing.Size(35, 13);

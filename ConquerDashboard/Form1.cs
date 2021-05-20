@@ -1,13 +1,26 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace ConquerDashboard
 {
 	public partial class Form1 : Form
 	{
+		private int[] hotkeys = new int[] { (int)Keys.G, (int)Keys.I, (int)Keys.S, (int)Keys.L, (int)Keys.H, (int)Keys.P, (int)Keys.C, (int)Keys.W };
 		private ctlTownSummary[] townSummary = new ctlTownSummary[16];
 		private Lotr2Inspector.Form1 frmXml;
+		private Dashboard dash = new Dashboard();
+
+		[DllImport("user32.dll")]
+		private static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vk);
+
+		[DllImport("user32.dll")]
+		private static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+
+		const int MOD_CONTROL = 0x0002;
+		const int MOD_SHIFT = 0x0004;
+		public const int WM_HOTKEY = 0x0312;
 
 		public Form1()
 		{
@@ -37,6 +50,12 @@ namespace ConquerDashboard
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
+			// Cheater's hotkeys ;)
+			foreach(int k in hotkeys)
+			{
+				RegisterHotKey(this.Handle, k, MOD_CONTROL, k);
+			}
+
 			// Init as much game data
 			Lotr2Inspector.Game.init();
 
@@ -66,10 +85,8 @@ namespace ConquerDashboard
 
 		private void brainerTrainer_DoWork(object sender, DoWorkEventArgs e)
 		{
-			Control console = this.Controls.Find("lblConsole", false)[0];
-
-			Dashboard dash = new Dashboard();
-			dash.setConsole(console);
+			// Setup and run dashboard
+			dash.setConsole(this.Controls.Find("lblConsole", false)[0]);
 			dash.setTownSummaries(townSummary);
 			dash.setForm(this);
 			dash.RunDash();
@@ -78,8 +95,21 @@ namespace ConquerDashboard
 		private void lblConsole_Click(object sender, EventArgs e)
 		{
 			frmXml = new Lotr2Inspector.Form1();
-
 			frmXml.Show();
+		}
+
+		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			foreach (int k in hotkeys)
+			{
+				UnregisterHotKey(this.Handle, k);
+			}
+		}
+
+		protected override void WndProc(ref Message m)
+		{
+			dash.incomingHotkey(ref m);
+			base.WndProc(ref m);
 		}
 	}
 }

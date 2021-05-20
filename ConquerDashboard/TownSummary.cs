@@ -60,11 +60,11 @@ namespace ConquerDashboard
 				throw new Exception("Town is not set");
 			}
 
-			String townName = "";
+			String townName = $"Town {town.Item}";
 
-			if(Lotr2Inspector.Game.MapTowns != null && Lotr2Inspector.Game.MapTowns[Lotr2Inspector.Game.CurrentGame.Get("current map")].Count - 1 > town.Item)
+			if (Lotr2Inspector.Game.MapTowns != null && Lotr2Inspector.Game.MapTowns[Lotr2Inspector.Game.CurrentGame.Get("current map")].Count - 1 > town.Item)
 			{
-				townName = Lotr2Inspector.Game.MapTowns[Lotr2Inspector.Game.CurrentGame.Get("current map")][town.Item + 1];
+				townName = Lotr2Inspector.Game.MapTowns[Lotr2Inspector.Game.CurrentGame.Get("current map")][town.Item + 1] + " #" + town.Item;
 			}
 
 			if(town.Item == Lotr2Inspector.Game.CurrentGame.Get("selected town") - 1)
@@ -344,7 +344,9 @@ namespace ConquerDashboard
 			// txtDebug
 			txtDebug.Invoke(new System.Action(() =>
 			{
-				txtDebug.Text = $"{this.town.Get("dairy maids needed?").ToString()} > {this.town.Get("dairy maids").ToString()}";
+				//txtDebug.Text = $"{this.town.Get("dairy maids needed?").ToString()} > {this.town.Get("dairy maids").ToString()}";
+				txtDebug.Text = $"Owner: {town.Get("owner")}; Color: {town.Get("color")}";
+				txtDebug.BackColor = Lotr2Inspector.Config.Colors[town.Get("color")];
 			}));
 		}
 
