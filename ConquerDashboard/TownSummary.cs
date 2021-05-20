@@ -340,6 +340,11 @@ namespace ConquerDashboard
 				}
 			}));
 
+			lblSquareOwnerColor.Invoke(new System.Action(() =>
+			{
+				lblSquareOwnerColor.BackColor = Lotr2Inspector.Config.Colors[town.Get("color")];
+			}));
+
 			///////////////////////////////////////////////////////////////////////////////
 			// txtDebug
 			txtDebug.Invoke(new System.Action(() =>

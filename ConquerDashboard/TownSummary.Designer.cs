@@ -62,6 +62,7 @@
 			this.panelWeapon = new System.Windows.Forms.Panel();
 			this.picWeapon = new System.Windows.Forms.PictureBox();
 			this.lblWeaponProduction = new System.Windows.Forms.Label();
+			this.lblSquareOwnerColor = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.picMenuBackground)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picPeasant)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picCow)).BeginInit();
@@ -169,6 +170,7 @@
 			this.txtDebug.Size = new System.Drawing.Size(35, 13);
 			this.txtDebug.TabIndex = 11;
 			this.txtDebug.Text = "label1";
+			this.txtDebug.Visible = false;
 			// 
 			// picCow
 			// 
@@ -392,11 +394,21 @@
 			this.lblWeaponProduction.TabIndex = 0;
 			this.lblWeaponProduction.Text = "+999";
 			// 
+			// lblSquareOwnerColor
+			// 
+			this.lblSquareOwnerColor.AutoSize = true;
+			this.lblSquareOwnerColor.Location = new System.Drawing.Point(6, 7);
+			this.lblSquareOwnerColor.Name = "lblSquareOwnerColor";
+			this.lblSquareOwnerColor.Size = new System.Drawing.Size(16, 13);
+			this.lblSquareOwnerColor.TabIndex = 22;
+			this.lblSquareOwnerColor.Text = "   ";
+			// 
 			// ctlTownSummary
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
+			this.Controls.Add(this.lblSquareOwnerColor);
 			this.Controls.Add(this.panelWeapon);
 			this.Controls.Add(this.panelSerf);
 			this.Controls.Add(this.panelOre);
@@ -479,5 +491,6 @@
 		private System.Windows.Forms.Label lblWeaponProduction;
 		private System.Windows.Forms.Label lblCountyWheat;
 		private System.Windows.Forms.Label lblCowCounty;
+		private System.Windows.Forms.Label lblSquareOwnerColor;
 	}
 }
