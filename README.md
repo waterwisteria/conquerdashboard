@@ -13,16 +13,16 @@ The Lords of the Realm 2 Conqueror Dashboard
 Use Control and the resource you wish to add (first letter of ressource).
 
 ### Global properties
-- Gold
-- Iron
-- Stone
-- Lumber
+- +1000 Gold
+- +5000 Iron
+- +5000 Stone
+- +5000 Lumber
 
 ### Town properties (must be selected)
-- Happiness
-- Population
-- Cows
-- Wheat
+- +10 Happiness
+- +100 Population
+- +10 Cows
+- +100 Wheat
 
 
 TODO
