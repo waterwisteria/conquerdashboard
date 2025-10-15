@@ -27,7 +27,7 @@ Use Control and the resource you wish to add (first letter of ressource).
 
 TODO
 - Display kingdom stats for other players (weapons, money, etc)
-- UI is horrible and slow (because of transparency and too many controls), speed up and pretty up
+- UI is slow (because of transparency and too many controls), speed up and pretty up
 - Health bar not displaying health
 - Release hotkeys when Lords2 not in focus
 - An actual EXE release :|
